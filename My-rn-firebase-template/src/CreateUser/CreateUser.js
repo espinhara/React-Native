@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Snackbar, Button, Text, TextInput} from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
+import auth from '@react-native-firebase/auth';
+
 
 function CreateUser() {
   const [email, setEmail] = useState('');
@@ -51,9 +53,30 @@ function CreateUser() {
   const createUser = () => {
     if (isValidEmail(email) && isValidPassword(password)) {
       //criar usuario
+      auth().createUserWithEmailAndPassword(email,password)
+      .then(()=>{
+        console.log("user created")
+      })
+      .catch(error => {
+        if (error.code === 'auth/email-already-in-use') {
+          console.log('That email address is already in use!');
+          setError({
+            isVisible:true,
+            message:"Email já cadastrado"
+          })
+        }
+    
+        if (error.code === 'auth/invalid-email') {
+          setError({
+            isVisible:true,
+            message:"Email invalido"
+          })
+          console.log('That email address is invalid!');
+        }
+        console.error(error);
+      })
     }
   };
-
   return (
     <View style={styles.container}>
       <Text>Criar usuario</Text>

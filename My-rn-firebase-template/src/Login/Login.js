@@ -55,6 +55,35 @@ function Login() {
   const sign = () => {
     if (isValidEmail(email) && isValidPassword(password)) {
       //fazer login
+      auth().signInWithEmailAndPassword(email,password)
+      .then(()=>{
+        console.log("user is loged");
+      })
+      .catch((error)=>{
+        if (error.code === 'auth/email-already-in-use') {
+          console.log('That email address is already in use!');
+          setError({
+            isVisible:true,
+            message:"Email já cadastrado"
+          })
+        }
+    
+        if (error.code === 'auth/invalid-email') {
+          setError({
+            isVisible:true,
+            message:"Email invalido"
+          })
+          console.log('That email address is invalid!');
+        }
+        if (error.code === 'auth/wrong-password') {
+          setError({
+            isVisible:true,
+            message:"Senha invalida"
+          })
+          console.log('That email password is invalid!');
+        }
+        console.error(error);
+      })
     }
   };
 

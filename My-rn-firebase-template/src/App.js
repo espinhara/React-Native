@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-
+import auth from '@react-native-firebase/auth';
 import selectRouters, {routers} from './navigationRouters';
 
 const theme = {
@@ -26,6 +26,8 @@ const App = () => {
 
   useEffect(() => {
     //
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; // unsubscribe on unmount
   }, []);
 
   return (

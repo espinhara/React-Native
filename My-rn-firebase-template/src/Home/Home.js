@@ -1,10 +1,14 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Title, Card, Paragraph, Appbar, Button} from 'react-native-paper';
+import auth from '@react-native-firebase/auth';
 
 const Homen = (props) => {
   const logout = () => {
     // fazer logout
+    auth()
+  .signOut()
+  .then(() => console.log('User signed out!'));
   };
 
   return (

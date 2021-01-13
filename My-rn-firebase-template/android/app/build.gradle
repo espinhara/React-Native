@@ -1,5 +1,5 @@
 apply plugin: "com.android.application"
-
+apply plugin: 'com.google.gms.google-services'
 import com.android.build.OutputFile
 
 /**
@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.templateapp"
+        applicationId "com.rnfirebase"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -181,6 +181,8 @@ android {
 }
 
 dependencies {
+    implementation platform('com.google.firebase:firebase-bom:26.2.0')
+    
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
