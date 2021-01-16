@@ -6,6 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "server": "json-server server.json -w",
     "test": "jest",
     "lint": "eslint ."
   },
