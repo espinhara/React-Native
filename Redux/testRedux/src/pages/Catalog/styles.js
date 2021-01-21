@@ -8,7 +8,7 @@ export const Container = styled.SafeAreaView`
 export const ProductContainer = styled.View`
     flex: 1;
     flex-direction: row;
-    margin-top: 40px;
+    margin-top: 50px;
     border-radius: 5px;
     /* justify-content:space-between; */
 `;

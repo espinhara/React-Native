@@ -1,11 +1,12 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  bottom: 0px;
+  top: 0px;
   position: absolute;
   background: #e83f5b;
   padding: 0px 12px;
-  border-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   align-items: center;
   flex-direction: row;
   justify-content: space-between;

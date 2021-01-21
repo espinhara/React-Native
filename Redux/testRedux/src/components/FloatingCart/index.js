@@ -35,7 +35,7 @@ export default function FloatingCart() {
   return (
     <Container>
       <CartButton onPress={() => navigation.navigate('Cart')}>
-        <FeatherIcon name="shopping-cart" size={24} color="#f3f9ff" />
+        <FeatherIcon name="shopping-cart" size={20} color="#f3f9ff" />
         <CartButtonText>
           {cartSize} {cartSize === 1 ? 'item' : 'itens'}
         </CartButtonText>
@@ -44,7 +44,7 @@ export default function FloatingCart() {
           <CartTotalPrice>{cartTotal}</CartTotalPrice>
         </CartPricing>
 
-        <FeatherIcon name="chevron-right" size={24} color="#f3f9ff" />
+        <FeatherIcon name="chevron-right" size={20} color="#f3f9ff" />
       </CartButton>
     </Container>
   );

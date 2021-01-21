@@ -26,7 +26,7 @@ export default function Routes() {
           options={{
             headerShown: true,
             headerTransparent: true,
-            headerTitle: () => <Header />,
+            headerTitle:"",
           }}
         />
         <Stack.Screen
